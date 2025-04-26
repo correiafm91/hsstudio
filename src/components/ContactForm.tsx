@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -8,25 +9,49 @@ const ContactForm = () => {
     name: '',
     email: '',
     phone: '',
-    projectType: '',
     area: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Formulário enviado com sucesso!",
-      description: "Entraremos em contato em breve.",
-    });
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      projectType: '',
-      area: '',
-      message: ''
-    });
+    setIsSubmitting(true);
+
+    try {
+      const { error } = await supabase
+        .from('contact_forms')
+        .insert([{
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          area: Number(formData.area),
+          message: formData.message
+        }]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Formulário enviado com sucesso!",
+        description: "Entraremos em contato em breve.",
+      });
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        area: '',
+        message: ''
+      });
+    } catch (error) {
+      toast({
+        title: "Erro ao enviar formulário",
+        description: "Por favor, tente novamente.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -61,16 +86,6 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}
             />
-            <select
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20"
-              value={formData.projectType}
-              onChange={(e) => setFormData({...formData, projectType: e.target.value})}
-            >
-              <option value="">Tipo de Projeto</option>
-              <option value="comercial">Comercial</option>
-              <option value="residencial">Residencial</option>
-            </select>
             <input
               type="number"
               placeholder="Área aproximada (m²)"
@@ -88,9 +103,10 @@ const ContactForm = () => {
             ></textarea>
             <button 
               type="submit"
-              className="w-full bg-coral text-white py-4 rounded-lg hover:bg-coral/90 transition-colors"
+              disabled={isSubmitting}
+              className="w-full bg-coral text-white py-4 rounded-lg hover:bg-coral/90 transition-colors disabled:opacity-50"
             >
-              Enviar
+              {isSubmitting ? 'Enviando...' : 'Enviar'}
             </button>
           </form>
         </div>
@@ -100,4 +116,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-
