@@ -7,7 +7,7 @@ const Hero = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-gothic text-darkgray mb-6">
-            Transforme seu espaço comercial em uma máquina de vendas
+            Ambientes que falam, encantam e vendem — design com alma.
           </h1>
           <p className="text-xl md:text-2xl text-darkgray/80 mb-8">
             Design de interiores que aumenta a satisfação dos clientes e impulsiona seus resultados. Especialistas em ambientes comerciais que geram impacto.
