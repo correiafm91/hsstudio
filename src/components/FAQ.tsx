@@ -1,4 +1,3 @@
-
 import {
   Accordion,
   AccordionContent,
@@ -10,23 +9,23 @@ const FAQ = () => {
   const faqs = [
     {
       question: "Qual é o prazo médio de um projeto?",
-      answer: "Nossos projetos geralmente levam de 2 a 3 semanas para serem concluídos, dependendo da área e complexidade do espaço."
+      answer: "Nossos projetos geralmente levam de 2 a 3 semanas para serem concluídos, dependendo da área e complexidade do espaço comercial."
     },
     {
       question: "Como é calculado o valor do projeto?",
-      answer: "O valor é calculado por metro quadrado, considerando a complexidade do projeto e as especificações necessárias."
+      answer: "O valor é calculado por metro quadrado, considerando a complexidade do projeto e as especificações necessárias para seu espaço comercial."
     },
     {
       question: "Como funciona o processo de contratação?",
-      answer: "Basta preencher nosso formulário de contato com as informações do seu projeto. Nossa equipe entrará em contato para agendar uma conversa inicial."
+      answer: "Basta preencher nosso formulário de contato com as informações do seu projeto comercial. Nossa equipe entrará em contato para agendar uma conversa inicial."
     },
     {
-      question: "Vocês atendem apenas projetos comerciais?",
-      answer: "Não, atendemos tanto projetos comerciais quanto residenciais, sempre com o mesmo padrão de qualidade e atenção aos detalhes."
+      question: "Quais tipos de projetos vocês atendem?",
+      answer: "Somos especializados exclusivamente em projetos comerciais, incluindo lojas, restaurantes, clínicas, escritórios e outros espaços comerciais."
     },
     {
       question: "O que está incluso no projeto?",
-      answer: "Nossos projetos incluem plantas técnicas, renderizações 3D, especificação de materiais e mobiliário, e acompanhamento durante a execução."
+      answer: "Nossos projetos incluem plantas técnicas, renderizações 3D, especificação de materiais e mobiliário, tudo pensado para maximizar o potencial do seu espaço comercial."
     }
   ];
 
@@ -50,4 +49,3 @@ const FAQ = () => {
 };
 
 export default FAQ;
-
