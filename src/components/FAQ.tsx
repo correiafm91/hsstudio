@@ -1,3 +1,4 @@
+
 import {
   Accordion,
   AccordionContent,
@@ -8,24 +9,24 @@ import {
 const FAQ = () => {
   const faqs = [
     {
-      question: "Qual é o prazo médio de um projeto?",
-      answer: "Nossos projetos geralmente levam de 2 a 3 semanas para serem concluídos, dependendo da área e complexidade do espaço comercial."
+      question: "Qual é o prazo médio de um projeto residencial?",
+      answer: "Nossos projetos residenciais geralmente levam de 2 a 4 semanas para serem concluídos, dependendo da área e complexidade do imóvel."
     },
     {
       question: "Como é calculado o valor do projeto?",
-      answer: "O valor é calculado por metro quadrado, considerando a complexidade do projeto e as especificações necessárias para seu espaço comercial."
+      answer: "O valor é calculado por metro quadrado, considerando a complexidade do projeto e as especificações necessárias para valorizar seu imóvel residencial."
     },
     {
       question: "Como funciona o processo de contratação?",
-      answer: "Basta preencher nosso formulário de contato com as informações do seu projeto comercial. Nossa equipe entrará em contato para agendar uma conversa inicial."
+      answer: "Basta preencher nosso formulário de contato com as informações do seu imóvel. Nossa equipe entrará em contato para agendar uma visita inicial e avaliar o espaço."
     },
     {
-      question: "Quais tipos de projetos vocês atendem?",
-      answer: "Somos especializados exclusivamente em projetos comerciais, incluindo lojas, restaurantes, clínicas, escritórios e outros espaços comerciais."
+      question: "Vocês trabalham com imóveis para aluguel ou venda?",
+      answer: "Sim, trabalhamos com ambos. Nossos projetos são ideais tanto para proprietários que desejam valorizar seu imóvel para venda quanto para aumentar o potencial de locação."
     },
     {
-      question: "O que está incluso no projeto?",
-      answer: "Nossos projetos incluem plantas técnicas, renderizações 3D, especificação de materiais e mobiliário, tudo pensado para maximizar o potencial do seu espaço comercial."
+      question: "O que está incluso no projeto residencial?",
+      answer: "Nossos projetos incluem plantas técnicas, renderizações 3D, especificação de materiais e mobiliário, tudo pensado para maximizar o valor e a atratividade do seu imóvel residencial."
     }
   ];
 

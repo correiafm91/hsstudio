@@ -41,7 +41,7 @@ const StatsSection = () => {
           </div>
           <div className="p-6">
             <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
-              <AnimatedNumber end={178} prefix="R$" suffix="k+" />
+              <AnimatedNumber end={800} prefix="R$" suffix="k+" />
             </div>
             <p className="text-darkgray">Em Resultados Gerados</p>
           </div>

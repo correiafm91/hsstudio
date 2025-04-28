@@ -10,7 +10,8 @@ const ContactForm = () => {
     email: '',
     phone: '',
     area: '',
-    message: ''
+    message: '',
+    instagram: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -26,7 +27,8 @@ const ContactForm = () => {
           email: formData.email,
           phone: formData.phone,
           area: Number(formData.area),
-          message: formData.message
+          message: formData.message,
+          instagram: formData.instagram
         }]);
 
       if (error) throw error;
@@ -41,7 +43,8 @@ const ContactForm = () => {
         email: '',
         phone: '',
         area: '',
-        message: ''
+        message: '',
+        instagram: ''
       });
     } catch (error) {
       toast({
@@ -85,6 +88,13 @@ const ContactForm = () => {
               className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20"
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}
+            />
+            <input
+              type="text"
+              placeholder="Instagram (opcional)"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20"
+              value={formData.instagram}
+              onChange={(e) => setFormData({...formData, instagram: e.target.value})}
             />
             <input
               type="number"
