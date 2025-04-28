@@ -33,19 +33,19 @@ const StatsSection = () => {
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="p-6">
+          <div className="p-6 hover:transform hover:scale-105 transition-transform duration-300">
             <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
               <AnimatedNumber end={24} suffix="+" />
             </div>
             <p className="text-darkgray">Projetos Realizados</p>
           </div>
-          <div className="p-6">
+          <div className="p-6 hover:transform hover:scale-105 transition-transform duration-300">
             <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
-              <AnimatedNumber end={800} prefix="R$" suffix="k+" />
+              <AnimatedNumber end={840} prefix="R$" suffix="k+" />
             </div>
-            <p className="text-darkgray">Em Resultados Gerados</p>
+            <p className="text-darkgray">Em lucros Gerados para os nossos clientes</p>
           </div>
-          <div className="p-6">
+          <div className="p-6 hover:transform hover:scale-105 transition-transform duration-300">
             <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
               <AnimatedNumber end={92} suffix=".3%" />
             </div>

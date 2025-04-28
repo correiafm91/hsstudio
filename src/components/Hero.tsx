@@ -17,11 +17,11 @@ const Hero = () => {
               Transforme seu espaço
             </a>
           </div>
-          <div className="hidden md:block">
+          <div className="md:block">
             <img 
               src="https://i.postimg.cc/RV1502yk/A-modern-flat-design-digital-artwork-of-a-realistic-home-interior-emphasizing-a-calm-and-soothing-a.jpg" 
               alt="Interior design showcase" 
-              className="rounded-lg shadow-lg w-full object-cover"
+              className="rounded-lg shadow-lg w-full object-cover animate-fadeIn"
             />
           </div>
         </div>

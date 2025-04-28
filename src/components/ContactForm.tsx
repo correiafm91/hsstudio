@@ -10,7 +10,6 @@ const ContactForm = () => {
     email: '',
     phone: '',
     area: '',
-    message: '',
     instagram: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,7 +26,6 @@ const ContactForm = () => {
           email: formData.email,
           phone: formData.phone,
           area: Number(formData.area),
-          message: formData.message,
           instagram: formData.instagram
         }]);
 
@@ -43,7 +41,6 @@ const ContactForm = () => {
         email: '',
         phone: '',
         area: '',
-        message: '',
         instagram: ''
       });
     } catch (error) {
@@ -68,7 +65,7 @@ const ContactForm = () => {
                 type="text"
                 placeholder="Nome"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
               />
@@ -76,23 +73,23 @@ const ContactForm = () => {
                 type="email"
                 placeholder="E-mail"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20"
+                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
               />
             </div>
             <input
               type="tel"
-              placeholder="Telefone"
+              placeholder="Contato WhatsApp"
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}
             />
             <input
               type="text"
               placeholder="Instagram (opcional)"
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
               value={formData.instagram}
               onChange={(e) => setFormData({...formData, instagram: e.target.value})}
             />
@@ -100,21 +97,14 @@ const ContactForm = () => {
               type="number"
               placeholder="Área aproximada (m²)"
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20"
+              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
               value={formData.area}
               onChange={(e) => setFormData({...formData, area: e.target.value})}
             />
-            <textarea
-              placeholder="Mensagem"
-              rows={4}
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20"
-              value={formData.message}
-              onChange={(e) => setFormData({...formData, message: e.target.value})}
-            ></textarea>
             <button 
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-coral text-white py-4 rounded-lg hover:bg-coral/90 transition-colors disabled:opacity-50"
+              className="w-full bg-coral text-white py-4 rounded-lg hover:bg-coral/90 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50"
             >
               {isSubmitting ? 'Enviando...' : 'Enviar'}
             </button>
