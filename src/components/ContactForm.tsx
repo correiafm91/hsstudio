@@ -80,7 +80,7 @@ const ContactForm = () => {
             </div>
             <input
               type="tel"
-              placeholder="Contato WhatsApp"
+              placeholder="WhatsApp"
               required
               className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
               value={formData.phone}
