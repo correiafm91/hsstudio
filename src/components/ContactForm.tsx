@@ -2,6 +2,13 @@
 import { useState } from 'react';
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -10,9 +17,23 @@ const ContactForm = () => {
     email: '',
     phone: '',
     area: '',
-    instagram: ''
+    instagram: '',
+    businessType: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const businessTypes = [
+    "Loja de varejo",
+    "Escritório corporativo",
+    "Clínica médica/odontológica",
+    "Restaurante/Cafeteria",
+    "Salão de beleza",
+    "Hotel/Pousada",
+    "Academia/Estúdio",
+    "Coworking",
+    "Consultório",
+    "Outro"
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +47,8 @@ const ContactForm = () => {
           email: formData.email,
           phone: formData.phone,
           area: Number(formData.area),
-          instagram: formData.instagram
+          instagram: formData.instagram,
+          business_type: formData.businessType
         }]);
 
       if (error) throw error;
@@ -41,7 +63,8 @@ const ContactForm = () => {
         email: '',
         phone: '',
         area: '',
-        instagram: ''
+        instagram: '',
+        businessType: ''
       });
     } catch (error) {
       toast({
@@ -93,6 +116,21 @@ const ContactForm = () => {
               value={formData.instagram}
               onChange={(e) => setFormData({...formData, instagram: e.target.value})}
             />
+            <Select
+              value={formData.businessType}
+              onValueChange={(value) => setFormData({...formData, businessType: value})}
+            >
+              <SelectTrigger className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300">
+                <SelectValue placeholder="Tipo de negócio" />
+              </SelectTrigger>
+              <SelectContent>
+                {businessTypes.map((type) => (
+                  <SelectItem key={type} value={type}>
+                    {type}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
             <input
               type="number"
               placeholder="Área aproximada (m²)"

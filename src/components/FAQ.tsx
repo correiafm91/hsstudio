@@ -26,7 +26,7 @@ const FAQ = () => {
     },
     {
       question: "Como funciona o processo de contratação?",
-      answer: "Basta preencher nosso formulário de contato com as informações do seu espaço comercial. Nossa equipe entrará em contato para agendar uma visita inicial e entender melhor as necessidades específicas do seu negócio."
+      answer: "Basta preencher nosso formulário de contato com as informações do seu espaço comercial. Nossa equipe analisará as suas necessidades e entrará em contato para dar continuidade ao projeto totalmente online."
     }
   ];
 
