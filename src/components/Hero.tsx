@@ -13,8 +13,6 @@ const Hero = () => {
             <p className="text-xl md:text-2xl text-darkgray/80 mb-8">
               Criamos projetos de design de interiores comerciais que vão muito além da estética.
               Eles conectam, convertem e vendem.
-              <br /><br />
-              Seja para uma loja, clínica ou escritório, planejamos cada detalhe para encantar seus clientes e impulsionar o faturamento.
             </p>
             <a href="#contato" className="inline-block bg-coral text-white px-8 py-4 rounded-full hover:bg-coral/90 transition-colors">
               Quero transformar meu espaço
@@ -22,7 +20,7 @@ const Hero = () => {
           </div>
           <div className="md:block">
             <img 
-              src="https://i.postimg.cc/RV1502yk/A-modern-flat-design-digital-artwork-of-a-realistic-home-interior-emphasizing-a-calm-and-soothing-a.jpg" 
+              src="https://i.postimg.cc/DZ4MHZSD/Precise-architectural-photograph-of-Uma-Clinica-Odontologica-Realista-Iluminada-Design-de-Interiores.jpg" 
               alt="Interior design showcase" 
               className="rounded-lg shadow-lg w-full object-cover animate-fadeIn"
             />

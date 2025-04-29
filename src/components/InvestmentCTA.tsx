@@ -10,8 +10,8 @@ const InvestmentCTA = () => {
           </h2>
           <div className="w-full max-w-3xl">
             <img 
-              src="https://i.postimg.cc/hvPbXTQm/A-candid-street-photograph-depicting-a-property-with-an-upward-trending-price-graph-icon-using-crea.jpg"
-              alt="Valorização imobiliária"
+              src="https://i.postimg.cc/qBPz9Z5Z/A-glowing-bioluminescent-logo-for-a-realistic-clothing-store-interior-design-using-geometric-shapes.jpg"
+              alt="Valorização comercial"
               className="w-full h-auto rounded-lg shadow-xl animate-fadeIn"
             />
           </div>
