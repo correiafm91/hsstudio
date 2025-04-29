@@ -5,12 +5,38 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useEffect, useRef } from 'react';
 
 const FAQ = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const faqs = [
     {
       question: "Em quanto tempo o projeto fica pronto?",
-      answer: "Nossos projetos comerciais geralmente levam de 3 a 6 semanas para serem concluídos, dependendo da complexidade e área do espaço comercial."
+      answer: "Nossos projetos comerciais geralmente levam de 2 a 3 semanas para serem concluídos, dependendo da complexidade e área do espaço comercial."
     },
     {
       question: "Quanto custa transformar meu espaço comercial?",
@@ -31,9 +57,9 @@ const FAQ = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section ref={sectionRef} className="py-20 bg-white opacity-0 transition-opacity duration-500">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-gothic text-darkgray mb-12">Dúvidas frequentes</h2>
+        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Dúvidas frequentes</h2>
         <div className="max-w-2xl mx-auto">
           <Accordion type="single" collapsible>
             {faqs.map((faq, index) => (

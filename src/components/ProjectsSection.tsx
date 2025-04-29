@@ -1,5 +1,40 @@
 
+import { useEffect, useRef } from 'react';
+
 const ProjectsSection = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fadeIn');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    const projectElements = document.querySelectorAll('.project-card');
+    projectElements.forEach((element) => {
+      observer.observe(element as Element);
+    });
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      projectElements.forEach((element) => {
+        observer.unobserve(element as Element);
+      });
+    };
+  }, []);
+
   const projects = [
     {
       title: "Clínica Estética Lumière",
@@ -34,19 +69,23 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projetos" className="py-20 bg-white">
+    <section id="projetos" ref={sectionRef} className="py-20 bg-white opacity-0 transition-opacity duration-500">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-gothic text-darkgray mb-12">Projetos</h2>
+        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Projetos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="group relative overflow-hidden rounded-lg">
+            <div 
+              key={index} 
+              className="group relative overflow-hidden rounded-lg project-card opacity-0 transition-all duration-500"
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <img 
                 src={project.image} 
                 alt={project.title}
                 className="w-full h-[400px] object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <div>
+                <div className="text-center w-full">
                   <h3 className="text-white text-xl font-gothic">{project.title}</h3>
                   <p className="text-white/80 mb-2">{project.category}</p>
                   <p className="text-white/90 text-sm">{project.description}</p>
