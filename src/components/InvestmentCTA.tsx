@@ -8,13 +8,6 @@ const InvestmentCTA = () => {
             Não é só design. É estratégia visual.<br />
             Design de interiores comercial é investimento — e o retorno começa no momento em que o cliente entra.
           </h2>
-          <div className="w-full max-w-3xl">
-            <img 
-              src="https://i.postimg.cc/qBPz9Z5Z/A-glowing-bioluminescent-logo-for-a-realistic-clothing-store-interior-design-using-geometric-shapes.jpg"
-              alt="Valorização comercial"
-              className="w-full h-auto rounded-lg shadow-xl animate-fadeIn"
-            />
-          </div>
         </div>
       </div>
     </section>
