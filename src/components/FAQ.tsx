@@ -5,34 +5,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useEffect, useRef } from 'react';
 
 const FAQ = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fadeIn');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   const faqs = [
     {
       question: "Em quanto tempo o projeto fica pronto?",
@@ -57,7 +31,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white opacity-0 transition-opacity duration-500">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Dúvidas frequentes</h2>
         <div className="max-w-2xl mx-auto">

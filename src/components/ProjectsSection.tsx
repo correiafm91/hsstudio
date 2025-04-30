@@ -2,39 +2,6 @@
 import { useEffect, useRef } from 'react';
 
 const ProjectsSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fadeIn');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    const projectElements = document.querySelectorAll('.project-card');
-    projectElements.forEach((element) => {
-      observer.observe(element as Element);
-    });
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-      projectElements.forEach((element) => {
-        observer.unobserve(element as Element);
-      });
-    };
-  }, []);
-
   const projects = [
     {
       title: "Clínica Estética Lumière",
@@ -69,15 +36,14 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projetos" ref={sectionRef} className="py-20 bg-white opacity-0 transition-opacity duration-500">
+    <section id="projetos" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Projetos</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <div 
               key={index} 
-              className="group relative overflow-hidden rounded-lg project-card opacity-0 transition-all duration-500"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="group relative overflow-hidden rounded-lg"
             >
               <img 
                 src={project.image} 

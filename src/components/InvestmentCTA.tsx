@@ -2,33 +2,8 @@
 import { useEffect, useRef } from 'react';
 
 const InvestmentCTA = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fadeIn');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
   return (
-    <section ref={sectionRef} className="py-20 bg-white opacity-0 transition-opacity duration-500">
+    <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="flex flex-col items-center gap-12">
           <h2 className="text-4xl md:text-5xl font-gothic text-darkgray text-center leading-tight max-w-4xl mx-auto">
