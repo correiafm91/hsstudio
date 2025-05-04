@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useToast } from "@/components/ui/use-toast";
+import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { 
   Select,
@@ -9,6 +9,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const ContactForm = () => {
   const { toast } = useToast();
@@ -38,20 +40,30 @@ const ContactForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+    
     try {
+      console.log("Submitting form data:", formData);
+      
+      // Validate required fields
+      if (!formData.name || !formData.email || !formData.phone || !formData.area) {
+        throw new Error("Por favor, preencha todos os campos obrigatórios");
+      }
+
       const { error } = await supabase
         .from('contact_forms')
         .insert([{
           name: formData.name,
           email: formData.email,
           phone: formData.phone,
-          area: Number(formData.area),
-          instagram: formData.instagram,
+          area: Number(formData.area) || 0,
+          message: formData.instagram, // Using message field for instagram as per DB schema
           business_type: formData.businessType
         }]);
 
-      if (error) throw error;
+      if (error) {
+        console.error("Supabase error:", error);
+        throw error;
+      }
 
       toast({
         title: "Formulário enviado com sucesso!",
@@ -66,10 +78,11 @@ const ContactForm = () => {
         instagram: '',
         businessType: ''
       });
-    } catch (error) {
+    } catch (error: any) {
+      console.error("Form submission error:", error);
       toast({
         title: "Erro ao enviar formulário",
-        description: "Por favor, tente novamente.",
+        description: error.message || "Por favor, tente novamente.",
         variant: "destructive"
       });
     } finally {
@@ -80,11 +93,11 @@ const ContactForm = () => {
   return (
     <section id="contato" className="py-20 bg-offwhite">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-gothic text-darkgray mb-12">Solicite um orçamento</h2>
+        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Solicite um orçamento</h2>
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <input
+              <Input
                 type="text"
                 placeholder="Nome"
                 required
@@ -92,7 +105,7 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
               />
-              <input
+              <Input
                 type="email"
                 placeholder="E-mail"
                 required
@@ -101,7 +114,7 @@ const ContactForm = () => {
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
               />
             </div>
-            <input
+            <Input
               type="tel"
               placeholder="WhatsApp"
               required
@@ -109,7 +122,7 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}
             />
-            <input
+            <Input
               type="text"
               placeholder="Instagram (opcional)"
               className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
@@ -131,7 +144,7 @@ const ContactForm = () => {
                 ))}
               </SelectContent>
             </Select>
-            <input
+            <Input
               type="number"
               placeholder="Área aproximada (m²)"
               required
@@ -139,13 +152,13 @@ const ContactForm = () => {
               value={formData.area}
               onChange={(e) => setFormData({...formData, area: e.target.value})}
             />
-            <button 
+            <Button 
               type="submit"
               disabled={isSubmitting}
               className="w-full bg-coral text-white py-4 rounded-lg hover:bg-coral/90 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50"
             >
               {isSubmitting ? 'Enviando...' : 'Enviar'}
-            </button>
+            </Button>
           </form>
         </div>
       </div>
