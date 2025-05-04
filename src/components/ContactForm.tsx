@@ -56,8 +56,8 @@ const ContactForm = () => {
           email: formData.email,
           phone: formData.phone,
           area: Number(formData.area) || 0,
-          message: formData.instagram, // Using message field for instagram as per DB schema
-          business_type: formData.businessType
+          message: formData.businessType ? `${formData.instagram} - ${formData.businessType}` : formData.instagram
+          // Removed business_type field as it doesn't exist in the database schema
         }]);
 
       if (error) {
