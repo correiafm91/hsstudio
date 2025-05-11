@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 
 const ServicesSection = () => {
   return (
-    <section className="py-20 bg-offwhite">
+    <section id="servicos" className="py-20 bg-offwhite">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">O que fazemos</h2>
         
@@ -23,13 +23,13 @@ const ServicesSection = () => {
           <div className="transform transition-all duration-300 hover:scale-105 flex justify-center">
             <img 
               src="https://i.postimg.cc/B6NpycVw/A-digitally-rendered-image-in-a-modern-flat-design-depicting-a-realistic-interior-with-a-gentle-and.jpg" 
-              alt="Projeto 3D de interiores" 
+              alt="Projeto 3D de interiores comerciais" 
               className="rounded-lg shadow-lg w-full"
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-16">
           <div className="order-2 md:order-1 transform transition-all duration-300 hover:scale-105 flex justify-center">
             <img 
               src="https://i.postimg.cc/VsWPf333/A-3-D-interior-house-view-Casa-3-D-de-interior-de-uma-casa-vista-por-cia-depicted-with-strong-hard.jpg" 
@@ -47,6 +47,27 @@ const ServicesSection = () => {
               <li>Materiais que impressionam e transmitem confiança</li>
               <li>Combinações que criam ambientes memoráveis</li>
             </ul>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div className="transform transition-all duration-300 hover:translate-y-[-10px] text-center">
+            <h3 className="text-3xl font-gothic text-coral mb-4">Projetos residenciais de alto valor</h3>
+            <p className="text-lg text-darkgray/80 mb-6">
+              Transformamos residências em espaços exclusivos que elevam o valor de mercado do seu imóvel.
+            </p>
+            <ul className="list-disc list-inside text-darkgray/80 space-y-2 ml-4">
+              <li>Reformas estratégicas que valorizam seu patrimônio</li>
+              <li>Design personalizado que reflete seu estilo de vida</li>
+              <li>Soluções que otimizam espaços e criam ambientes sofisticados</li>
+            </ul>
+          </div>
+          <div className="transform transition-all duration-300 hover:scale-105 flex justify-center">
+            <img 
+              src="https://i.postimg.cc/bvtZqPH4/A-modern-minimalist-living-room-with-large-windows-natural-light-stylish-furniture-and-subtle-design.jpg" 
+              alt="Projeto residencial" 
+              className="rounded-lg shadow-lg w-full"
+            />
           </div>
         </div>
       </div>

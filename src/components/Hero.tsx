@@ -8,11 +8,11 @@ const Hero = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="text-center">
             <h1 className="text-5xl md:text-7xl font-gothic text-darkgray mb-6">
-              Transforme seu espaço. Valorize sua marca. Aumente seus resultados.
+              Transforme seu espaço. Valorize sua marca e imóvel. Aumente seus resultados.
             </h1>
             <p className="text-xl md:text-2xl text-darkgray/80 mb-8">
-              Criamos projetos de design de interiores comerciais que vão muito além da estética.
-              Eles conectam, convertem e vendem.
+              Criamos projetos de design de interiores comerciais e residenciais que vão muito além da estética.
+              Eles conectam, valorizam e transformam.
             </p>
             <div className="flex justify-center">
               <a href="#contato" className="inline-block bg-coral text-white px-8 py-4 rounded-full hover:bg-coral/90 transition-colors">
