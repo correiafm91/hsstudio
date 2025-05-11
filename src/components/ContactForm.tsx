@@ -25,7 +25,6 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const businessTypes = [
-    // Comerciais
     "Loja de varejo",
     "Escritório corporativo",
     "Clínica médica/odontológica",
@@ -35,12 +34,6 @@ const ContactForm = () => {
     "Academia/Estúdio",
     "Coworking",
     "Consultório",
-    // Residenciais
-    "Apartamento",
-    "Casa",
-    "Sobrado",
-    "Loft",
-    "Studio",
     "Outro"
   ];
 
@@ -141,7 +134,7 @@ const ContactForm = () => {
               onValueChange={(value) => setFormData({...formData, businessType: value})}
             >
               <SelectTrigger className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300">
-                <SelectValue placeholder="Tipo de projeto" />
+                <SelectValue placeholder="Tipo de negócio" />
               </SelectTrigger>
               <SelectContent>
                 {businessTypes.map((type) => (
