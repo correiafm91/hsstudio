@@ -9,6 +9,10 @@ import {
 const FAQ = () => {
   const faqs = [
     {
+      question: "Quanto tempo demora para finalizar o projeto?",
+      answer: "O projeto completo é finalizado entre 2 a 3 semanas, incluindo a criação do design 3D, lista detalhada de compras e todas as orientações para implementação."
+    },
+    {
       question: "Em quanto tempo vou ver aumento nas reservas?",
       answer: "Nossos clientes relatam aumento significativo nas visualizações e reservas já nas primeiras semanas após a implementação do projeto e atualização das fotos do anúncio."
     },
