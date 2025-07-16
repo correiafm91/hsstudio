@@ -32,28 +32,28 @@ const StatsSection = () => {
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Nossos resultados falam por si</h2>
+        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Resultados que transformam seu Airbnb</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="p-6 hover:transform hover:scale-105 transition-transform duration-300">
             <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
-              <AnimatedNumber end={24} suffix="+" />
+              <AnimatedNumber end={38} suffix="+" />
             </div>
-            <p className="text-darkgray">projetos entregues</p>
-            <p className="text-sm text-darkgray/70 mt-2">Ambientes comerciais que viraram vitrines de sucesso</p>
+            <p className="text-darkgray">Airbnbs transformados</p>
+            <p className="text-sm text-darkgray/70 mt-2">Propriedades que se tornaram destinos desejados</p>
           </div>
           <div className="p-6 hover:transform hover:scale-105 transition-transform duration-300">
             <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
-              <AnimatedNumber end={840} prefix="R$" suffix="k+" />
+              <AnimatedNumber end={142} suffix="%" />
             </div>
-            <p className="text-darkgray">em lucros gerados</p>
-            <p className="text-sm text-darkgray/70 mt-2">Para clientes que decidiram investir em experiência</p>
+            <p className="text-darkgray">aumento médio na receita</p>
+            <p className="text-sm text-darkgray/70 mt-2">Nossos clientes dobram o faturamento em 6 meses</p>
           </div>
           <div className="p-6 hover:transform hover:scale-105 transition-transform duration-300">
             <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
-              <AnimatedNumber end={92} suffix=".3%" />
+              <AnimatedNumber end={94} suffix="%" />
             </div>
-            <p className="text-darkgray">de satisfação</p>
-            <p className="text-sm text-darkgray/70 mt-2">Clientes que voltariam e indicariam sem pensar duas vezes</p>
+            <p className="text-darkgray">taxa de ocupação média</p>
+            <p className="text-sm text-darkgray/70 mt-2">Calendário sempre lotado com reservas premium</p>
           </div>
         </div>
       </div>

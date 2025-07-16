@@ -20,7 +20,7 @@ export default {
     },
     extend: {
       colors: {
-        coral: "#FF4C38",
+        coral: "#4A90E2",
         offwhite: "#FAF9F6",
         darkgray: "#2D2D2D",
         border: "hsl(var(--border))",
@@ -73,4 +73,3 @@ export default {
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
-

@@ -20,20 +20,21 @@ const ContactForm = () => {
     phone: '',
     area: '',
     instagram: '',
-    businessType: ''
+    propertyType: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const businessTypes = [
-    "Loja de varejo",
-    "Escritório corporativo",
-    "Clínica médica/odontológica",
-    "Restaurante/Cafeteria",
-    "Salão de beleza",
-    "Hotel/Pousada",
-    "Academia/Estúdio",
-    "Coworking",
-    "Consultório",
+  const propertyTypes = [
+    "Apartamento 1-2 quartos",
+    "Apartamento 3+ quartos",
+    "Casa térrea",
+    "Casa de 2+ andares",
+    "Loft/Studio",
+    "Chalé/Casa de campo",
+    "Cobertura",
+    "Kitnet",
+    "Casa de praia",
+    "Fazenda/Sítio",
     "Outro"
   ];
 
@@ -44,7 +45,6 @@ const ContactForm = () => {
     try {
       console.log("Submitting form data:", formData);
       
-      // Validate required fields
       if (!formData.name || !formData.email || !formData.phone || !formData.area) {
         throw new Error("Por favor, preencha todos os campos obrigatórios");
       }
@@ -56,8 +56,7 @@ const ContactForm = () => {
           email: formData.email,
           phone: formData.phone,
           area: Number(formData.area) || 0,
-          message: formData.businessType ? `${formData.instagram} - ${formData.businessType}` : formData.instagram
-          // Removed business_type field as it doesn't exist in the database schema
+          message: `Airbnb: ${formData.propertyType || 'Não informado'} - Instagram: ${formData.instagram || 'Não informado'}`
         }]);
 
       if (error) {
@@ -66,8 +65,8 @@ const ContactForm = () => {
       }
 
       toast({
-        title: "Formulário enviado com sucesso!",
-        description: "Entraremos em contato em breve.",
+        title: "Solicitação enviada com sucesso!",
+        description: "Nossa equipe entrará em contato em breve para transformar seu Airbnb.",
       });
 
       setFormData({
@@ -76,12 +75,12 @@ const ContactForm = () => {
         phone: '',
         area: '',
         instagram: '',
-        businessType: ''
+        propertyType: ''
       });
     } catch (error: any) {
       console.error("Form submission error:", error);
       toast({
-        title: "Erro ao enviar formulário",
+        title: "Erro ao enviar solicitação",
         description: error.message || "Por favor, tente novamente.",
         variant: "destructive"
       });
@@ -93,7 +92,7 @@ const ContactForm = () => {
   return (
     <section id="contato" className="py-20 bg-offwhite">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Solicite um orçamento</h2>
+        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Transforme seu Airbnb agora</h2>
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -124,20 +123,20 @@ const ContactForm = () => {
             />
             <Input
               type="text"
-              placeholder="Instagram (opcional)"
+              placeholder="Instagram da propriedade (opcional)"
               className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
               value={formData.instagram}
               onChange={(e) => setFormData({...formData, instagram: e.target.value})}
             />
             <Select
-              value={formData.businessType}
-              onValueChange={(value) => setFormData({...formData, businessType: value})}
+              value={formData.propertyType}
+              onValueChange={(value) => setFormData({...formData, propertyType: value})}
             >
               <SelectTrigger className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300">
-                <SelectValue placeholder="Tipo de negócio" />
+                <SelectValue placeholder="Tipo de propriedade" />
               </SelectTrigger>
               <SelectContent>
-                {businessTypes.map((type) => (
+                {propertyTypes.map((type) => (
                   <SelectItem key={type} value={type}>
                     {type}
                   </SelectItem>
@@ -157,7 +156,7 @@ const ContactForm = () => {
               disabled={isSubmitting}
               className="w-full bg-coral text-white py-4 rounded-lg hover:bg-coral/90 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50"
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar'}
+              {isSubmitting ? 'Enviando...' : 'Quero aumentar minhas reservas'}
             </Button>
           </form>
         </div>
