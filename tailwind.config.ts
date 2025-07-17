@@ -20,9 +20,9 @@ export default {
     },
     extend: {
       colors: {
-        coral: "#4A90E2",
-        offwhite: "#FAF9F6",
-        darkgray: "#2D2D2D",
+        beige: "#A0845C",
+        offwhite: "#FFFFFF",
+        darkgray: "#000000",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

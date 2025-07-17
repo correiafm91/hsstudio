@@ -90,9 +90,12 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contato" className="py-20 bg-offwhite">
+    <section id="contato" className="py-20 bg-muted">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Transforme seu Airbnb agora</h2>
+        <h2 className="text-4xl font-gothic text-foreground mb-4 text-center">Pronto para <span className="text-primary">triplicar suas reservas</span>?</h2>
+        <p className="text-center text-muted-foreground mb-12">
+          Agende uma consultoria gratuita e descubra como implementar estratégias que aumentam sua receita em 300%
+        </p>
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -100,7 +103,7 @@ const ContactForm = () => {
                 type="text"
                 placeholder="Nome"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
+                className="w-full px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
               />
@@ -108,7 +111,7 @@ const ContactForm = () => {
                 type="email"
                 placeholder="E-mail"
                 required
-                className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
+                className="w-full px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
               />
@@ -117,14 +120,14 @@ const ContactForm = () => {
               type="tel"
               placeholder="WhatsApp"
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
+              className="w-full px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}
             />
             <Input
               type="text"
-              placeholder="Instagram da propriedade (opcional)"
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
+              placeholder="Link do seu anúncio Airbnb (opcional)"
+              className="w-full px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
               value={formData.instagram}
               onChange={(e) => setFormData({...formData, instagram: e.target.value})}
             />
@@ -132,31 +135,31 @@ const ContactForm = () => {
               value={formData.propertyType}
               onValueChange={(value) => setFormData({...formData, propertyType: value})}
             >
-              <SelectTrigger className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300">
-                <SelectValue placeholder="Tipo de propriedade" />
+              <SelectTrigger className="w-full px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300">
+                <SelectValue placeholder="Quantas reservas você tem por mês?" />
               </SelectTrigger>
               <SelectContent>
-                {propertyTypes.map((type) => (
-                  <SelectItem key={type} value={type}>
-                    {type}
-                  </SelectItem>
-                ))}
+                <SelectItem value="0-2">0-2 reservas por mês</SelectItem>
+                <SelectItem value="3-5">3-5 reservas por mês</SelectItem>
+                <SelectItem value="6-10">6-10 reservas por mês</SelectItem>
+                <SelectItem value="11-15">11-15 reservas por mês</SelectItem>
+                <SelectItem value="16+">Mais de 16 reservas por mês</SelectItem>
               </SelectContent>
             </Select>
             <Input
-              type="number"
-              placeholder="Área aproximada (m²)"
+              type="text"
+              placeholder="Qual sua principal dificuldade com o Airbnb?"
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-coral/20 transition-all duration-300"
+              className="w-full px-4 py-3 rounded-lg border border-input focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
               value={formData.area}
               onChange={(e) => setFormData({...formData, area: e.target.value})}
             />
             <Button 
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-coral text-white py-4 rounded-lg hover:bg-coral/90 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50"
+              className="w-full bg-primary text-primary-foreground py-4 rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50"
             >
-              {isSubmitting ? 'Enviando...' : 'Quero aumentar minhas reservas'}
+              {isSubmitting ? 'Enviando...' : 'Quero triplicar minhas reservas'}
             </Button>
           </form>
         </div>

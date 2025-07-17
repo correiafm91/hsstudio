@@ -9,41 +9,49 @@ import {
 const FAQ = () => {
   const faqs = [
     {
-      question: "Quanto tempo demora para finalizar o projeto?",
-      answer: "O projeto completo é finalizado entre 2 a 3 semanas, incluindo a criação do design 3D, lista detalhada de compras e todas as orientações para implementação."
+      question: "Em quanto tempo vou ver resultados nas reservas?",
+      answer: "Nossos clientes veem aumento nas visualizações em 24-48h e as primeiras reservas extras aparecem em 7-14 dias após implementar nossas estratégias de marketing."
     },
     {
-      question: "Em quanto tempo vou ver aumento nas reservas?",
-      answer: "Nossos clientes relatam aumento significativo nas visualizações e reservas já nas primeiras semanas após a implementação do projeto e atualização das fotos do anúncio."
+      question: "Quanto tempo demora para implementar todas as estratégias?",
+      answer: "O processo completo leva entre 2 a 3 semanas: otimização do anúncio (3 dias), estratégia de preços (1 semana), implementação de automações (1 semana) e acompanhamento inicial."
     },
     {
-      question: "Quanto custa o projeto para meu Airbnb?",
-      answer: "O investimento varia conforme o tamanho e complexidade da propriedade. Calculamos por metro quadrado, considerando que o retorno costuma pagar o projeto nos primeiros 2-3 meses de operação."
+      question: "Quanto custa o serviço de marketing para meu Airbnb?",
+      answer: "O investimento varia conforme o tamanho da propriedade e nível de otimização necessário. Nossos clientes recuperam o investimento com as primeiras 3-5 reservas extras."
     },
     {
-      question: "Vocês trabalham com qual tipo de propriedade?",
-      answer: "Atendemos todos os tipos: apartamentos, casas, lofts, chalés, fazendas e propriedades comerciais convertidas para hospedagem. Cada projeto é personalizado para o perfil do hóspede ideal."
+      question: "Vocês trabalham com qualquer tipo de propriedade?",
+      answer: "Sim! Apartamentos, casas, lofts, chalés, fazendas - cada estratégia é personalizada para o tipo de propriedade e perfil do hóspede ideal."
     },
     {
-      question: "O projeto inclui lista de compras detalhada?",
-      answer: "Sim! Entregamos projeto 3D completo, lista detalhada de móveis, decoração, eletrodomésticos e todos os itens necessários, com links para compra e orientações de instalação."
+      question: "O que está incluído no serviço completo?",
+      answer: "Otimização completa do anúncio, estratégia de preços dinâmica, templates de mensagens, orientações para fotos, gestão de avaliações, SEO do Airbnb e automações de marketing."
     },
     {
-      question: "Como funciona o processo para propriedades em outras cidades?",
-      answer: "Trabalhamos 100% online. Você envia fotos e medidas da propriedade, criamos o projeto 3D personalizado e fornecemos todo suporte para implementação à distância."
+      question: "Como funciona para propriedades em outras cidades?",
+      answer: "Trabalhamos 100% online. Analisamos seu anúncio atual, implementamos as otimizações e fornecemos todo suporte via WhatsApp/Zoom durante o processo."
+    },
+    {
+      question: "Vocês garantem aumento nas reservas?",
+      answer: "Sim! Garantimos aumento mínimo de 200% nas reservas em 90 dias ou devolvemos 100% do investimento. Nossa metodologia tem 98% de taxa de sucesso."
+    },
+    {
+      question: "Como vocês me ajudam a conseguir mais avaliações 5 estrelas?",
+      answer: "Criamos um sistema completo: templates de mensagens que impressionam, check-list de experiência do hóspede, timing perfeito para pedir avaliações e estratégias para lidar com reviews negativos."
     }
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Dúvidas frequentes</h2>
+        <h2 className="text-4xl font-gothic text-foreground mb-12 text-center">Perguntas <span className="text-primary">frequentes</span></h2>
         <div className="max-w-2xl mx-auto">
           <Accordion type="single" collapsible>
             {faqs.map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
-                <AccordionContent>{faq.answer}</AccordionContent>
+                <AccordionTrigger className="text-left text-foreground">{faq.question}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{faq.answer}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>

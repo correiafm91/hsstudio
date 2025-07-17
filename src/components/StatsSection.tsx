@@ -30,30 +30,30 @@ const AnimatedNumber = ({ end, duration = 2000, prefix = '', suffix = '' }) => {
 
 const StatsSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-muted">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-gothic text-darkgray mb-12 text-center">Resultados que transformam seu Airbnb</h2>
+        <h2 className="text-4xl font-gothic text-foreground mb-12 text-center">Resultados <span className="text-primary">comprovados</span> dos nossos clientes</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div className="p-6 hover:transform hover:scale-105 transition-transform duration-300">
-            <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
-              <AnimatedNumber end={38} suffix="+" />
+            <div className="text-4xl md:text-5xl font-gothic text-primary mb-2">
+              <AnimatedNumber end={850} suffix="%" />
             </div>
-            <p className="text-darkgray">Airbnbs transformados</p>
-            <p className="text-sm text-darkgray/70 mt-2">Propriedades que se tornaram destinos desejados</p>
+            <p className="text-foreground">Aumento médio nas reservas</p>
+            <p className="text-sm text-muted-foreground mt-2">Nossos clientes multiplicam as reservas em 90 dias</p>
           </div>
           <div className="p-6 hover:transform hover:scale-105 transition-transform duration-300">
-            <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
-              <AnimatedNumber end={142} suffix="%" />
+            <div className="text-4xl md:text-5xl font-gothic text-primary mb-2">
+              <AnimatedNumber end={12} suffix=" mil" />
             </div>
-            <p className="text-darkgray">aumento médio na receita</p>
-            <p className="text-sm text-darkgray/70 mt-2">Nossos clientes dobram o faturamento em 6 meses</p>
+            <p className="text-foreground">Receita adicional média/mês</p>
+            <p className="text-sm text-muted-foreground mt-2">Aumento real na receita dos nossos clientes</p>
           </div>
           <div className="p-6 hover:transform hover:scale-105 transition-transform duration-300">
-            <div className="text-4xl md:text-5xl font-gothic text-coral mb-2">
-              <AnimatedNumber end={94} suffix="%" />
+            <div className="text-4xl md:text-5xl font-gothic text-primary mb-2">
+              <AnimatedNumber end={7} suffix=" dias" />
             </div>
-            <p className="text-darkgray">taxa de ocupação média</p>
-            <p className="text-sm text-darkgray/70 mt-2">Calendário sempre lotado com reservas premium</p>
+            <p className="text-foreground">Para ver os primeiros resultados</p>
+            <p className="text-sm text-muted-foreground mt-2">Aumento nas visualizações e primeiras reservas</p>
           </div>
         </div>
       </div>
